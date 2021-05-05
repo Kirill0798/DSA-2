@@ -106,10 +106,7 @@ public class Node {
     }
 
     private void initFingerTable(Node node) {
-        this.getFingerTable().get(0).setNode(
-                node.findSuccessor(
-                        this.getFingerTable().get(0).getStart()
-                ));
+        this.getFingerTable().get(0).setNode(node.findSuccessor(this.getFingerTable().get(0).getStart()));
         this.setPredecessor(getSuccessor().getPredecessor());
         this.getSuccessor().setPredecessor(this);
 
