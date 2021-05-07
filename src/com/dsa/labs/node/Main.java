@@ -71,6 +71,7 @@ public class Main {
 
         nodes.get(indexes.size() + 1).remove();
         nodes.remove(indexes.size() + 1);
+
         stabilize(nodes);
         printList(nodes);
 
