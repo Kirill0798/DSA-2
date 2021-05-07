@@ -28,7 +28,7 @@ public class Main {
     }
 
     private static void stabilize(List<Node> nodes) {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 10000; i++) {
             for (Node node : nodes) {
                 node.stabilize();
                 node.fixFingers();
@@ -47,15 +47,12 @@ public class Main {
 
         List<Integer> indexes = new ArrayList<>(Arrays.asList(1, 3));
 
-        Node finalHead = head;
-
         indexes.forEach(
                 x -> {
                     Node node = new Node(m, x);
-                    node.joinStable(finalHead);
+                    node.joinStable(head);
                     nodes.add(node);
-                }
-        );
+                });
 
         stabilize(nodes);
         printList(nodes);
@@ -70,10 +67,10 @@ public class Main {
         printList(nodes);
 
         System.out.println("\n" + "finger table after removing node 6");
-        indexes.remove(2);
+        indexes.remove(indexes.size() - 1);
 
-        nodes.get(3).remove();
-        nodes.remove(3);
+        nodes.get(indexes.size() + 1).remove();
+        nodes.remove(indexes.size() + 1);
         stabilize(nodes);
         printList(nodes);
 
